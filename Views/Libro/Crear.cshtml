@@ -1,0 +1,41 @@
+﻿@model Libro
+
+@{
+    ViewData["Title"] = "Registrar libro";
+}
+
+<h1>Registrar libro</h1>
+
+@using (Html.BeginForm("Crear", "Libro", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <div>
+        @Html.LabelFor(m => m.NombreLibro)
+        @Html.EditorFor(m => m.NombreLibro)
+        @Html.ValidationMessageFor(m => m.NombreLibro)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Autor)
+        @Html.EditorFor(m => m.Autor)
+        @Html.ValidationMessageFor(m => m.Autor)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.NombreEditorial)
+        @Html.EditorFor(m => m.NombreEditorial)
+        @Html.ValidationMessageFor(m => m.NombreEditorial)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.ISDN)
+        @Html.EditorFor(m => m.ISDN)
+        @Html.ValidationMessageFor(m => m.ISDN)
+    </div>
+
+    <button type="submit">Guardar</button>
+}
+
+@Html.ActionLink("Volver al listado", "Index")

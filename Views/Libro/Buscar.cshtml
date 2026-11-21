@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Libro>
+
+@{
+    ViewData["Title"] = "Búsqueda por autor";
+}
+
+<h1>Libros por autor</h1>
+<p>Búsqueda: @ViewBag.Autor</p>
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Nombre del libro</th>
+        <th>Autor</th>
+        <th>Editorial</th>
+        <th>ISDN</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.NombreLibro</td>
+            <td>@item.Autor</td>
+            <td>@item.NombreEditorial</td>
+            <td>@item.ISDN</td>
+        </tr>
+    }
+</table>
+
+@Html.ActionLink("Volver al listado", "Index")

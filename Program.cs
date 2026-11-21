@@ -1,7 +1,13 @@
+using DesarrolloServiciosWeb_T1.Repositories;
+using DesarrolloServiciosWeb_T1.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<ILibroServices, LibroServices>();
+builder.Services.AddScoped<ILibroRepository, LibroRepository>();
 
 var app = builder.Build();
 

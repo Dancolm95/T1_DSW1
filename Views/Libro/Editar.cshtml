@@ -1,0 +1,42 @@
+﻿@model Libro
+
+@{
+    ViewData["Title"] = "Editar libro";
+}
+
+<h1>Editar libro</h1>
+
+@using (Html.BeginForm("Editar", "Libro", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.Id)
+    @Html.ValidationSummary()
+
+    <div>
+        @Html.LabelFor(m => m.NombreLibro)
+        @Html.EditorFor(m => m.NombreLibro)
+        @Html.ValidationMessageFor(m => m.NombreLibro)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Autor)
+        @Html.EditorFor(m => m.Autor)
+        @Html.ValidationMessageFor(m => m.Autor)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.NombreEditorial)
+        @Html.EditorFor(m => m.NombreEditorial)
+        @Html.ValidationMessageFor(m => m.NombreEditorial)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.ISDN)
+        @Html.EditorFor(m => m.ISDN)
+        @Html.ValidationMessageFor(m => m.ISDN)
+    </div>
+
+    <button type="submit">Guardar cambios</button>
+}
+
+@Html.ActionLink("Volver al listado", "Index")
